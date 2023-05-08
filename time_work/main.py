@@ -1,17 +1,17 @@
-import os
-from sys import argv
 
-directory = "data"
-CurrentDirectory = os.getcwd()
-STORAGE_PATH = os.path.join(CurrentDirectory, directory)
-if not os.path.exists(STORAGE_PATH):
-	os.mkdir(STORAGE_PATH)
+from sys import argv
+from save_data import Save 
+from file import File
+
 
 def main():
-	work = argv[1]
-	time = argv[2]
-	print(work+": "+time)
-
+	try:
+		work = argv[1]
+		time = argv[2]
+		File()
+		Save(work, time)
+	except IndexError:
+		print('you have to enter two arguments(work, time) :)')
 
 
 if __name__ == "__main__":
